@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*
+========================================
+    First Loader - learning use for mask, @keyframes and animation
+========================================
+*/
+
+.loader-holder1 {
+    margin: 0;
+    min-height: 50vh;
+    display: grid;
+    place-content: center;
+}
+
+.loader1 {
+    width: 150px;           /* dimension of shape */
+    aspect-ratio: 1;        /* makes height and width remain equal and in this case a s */
+    display: grid;
+    -webkit-mask: conic-gradient(from 22deg, #0003,#000);  /* used to create the blending effect on the bars*/
+        mask: conic-gradient(from 22deg, #0003,#000);      /* must include second mask vaule to have clean CSS code*/
+    animation: load 1s steps(8) infinite;                       /* creates the spinning effect on bars. used 8 to match number of bars. Can be increased to look different*/
+  }
+  
+  .loader1,
+  .loader1:before {                             /* learned how to using Var can help keep code easy to change*/
+    --_g: linear-gradient(dodgerblue 0 0) 50%; 
+    background: 
+      var(--_g)/34% 8%  space no-repeat,        /* 34% wide and 8% tall. Used 34% to keep no more than 2 bars*/
+      var(--_g)/8%  34% no-repeat space;        /* space keyword duplicated the */
+  }
+  
+  .loader1:before {                             /* targeted pseudo-class ::before from loader1 to create 4 more bars*/
+    content: "";
+    transform: rotate(45deg); 
+  }
+
+  @keyframes load {                              /* creates the continous movement effect, still need more infomation on more @keyframes, looked at templates to get this working*/
+    from {transform: rotate(0turn)}
+    to   {transform: rotate(1turn)}
+  }
+  
