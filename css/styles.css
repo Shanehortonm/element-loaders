@@ -110,7 +110,7 @@ Third loader. creating circular shape
 */
 
 .loader3 {
-  width: 100px;
+  width: 120px;
   aspect-ratio: 1;
   display: grid;
   -webkit-mask: conic-gradient(from 15deg, #0003, #000);
@@ -121,10 +121,10 @@ Third loader. creating circular shape
 .loader3,
 .loader3::before,
 .loader3::after {
-  background: radial-gradient(closest-side at 50% 12.5%, currentcolor 90%, #0000 98%)
-              50% 0/20% 80%;
+  background: radial-gradient(closest-side at 50% 12.5%, currentcolor 90%, #0000 98%)  /* closet-side selector defines shape size as well*/
+              50% 0/20% 80% repeat-y;
   background: radial-gradient(closest-side at 12.5% 50%, currentcolor 90%, #0000 98%)
-              0 50%/80% 20%;
+              0 50%/80% 20% repeat-x;
 }
 
 .loader3::before,
@@ -145,10 +145,18 @@ Third loader. creating circular shape
 
 .loader-holder3 {
   margin: 0;
-  min-height: 40vh;
+  min-height: 70vh;
   display: grid;
   place-content: center;
   place-items: center;
   grid-auto-flow: column;
   gap: 30px;
 }
+
+
+/*
+===============================================
+    loader 4. loading circle style. 
+===============================================
+*/
+
