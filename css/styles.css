@@ -16,7 +16,8 @@
     min-height: 50vh;
     display: grid;
     place-content: center;
-    border: 1px solid red;
+    border: 40px solid aqua;
+    background-color: #000;
 }
 
 .loader1 {
@@ -61,9 +62,10 @@
   display: grid;
   place-content: center;
   place-items: center;
-  grid-auto-flow: column;
+  grid-auto-flow: row;
   gap: 50px;
-  border: 1px solid red;
+  padding: 2rem;
+  background-color: #000;
 }
 
 .loader2 {
@@ -101,3 +103,52 @@
 }
 
 
+/*
+============================================================
+Third loader. creating circular shape
+============================================================
+*/
+
+.loader3 {
+  width: 100px;
+  aspect-ratio: 1;
+  display: grid;
+  -webkit-mask: conic-gradient(from 15deg, #0003, #000);
+  mask: conic-gradient(from 15deg, #0003, #000);
+  animation: load 1s steps(12) infinite;
+}
+
+.loader3,
+.loader3::before,
+.loader3::after {
+  background: radial-gradient(closest-side at 50% 12.5%, currentcolor 90%, #0000 98%)
+              50% 0/20% 80%;
+  background: radial-gradient(closest-side at 12.5% 50%, currentcolor 90%, #0000 98%)
+              0 50%/80% 20%;
+}
+
+.loader3::before,
+.loader3::after {
+  content: "";
+  grid-area: 1/1;
+  transform: rotate(30deg);
+}
+
+.loader3::after {
+  transform: rotate(60deg);
+}
+
+@keyframes load {
+  from {transform: rotate(0turn)}
+  to   {transform: rotate(1turn)}
+}
+
+.loader-holder3 {
+  margin: 0;
+  min-height: 40vh;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  grid-auto-flow: column;
+  gap: 30px;
+}
